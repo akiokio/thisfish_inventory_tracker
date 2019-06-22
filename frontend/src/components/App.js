@@ -6,6 +6,7 @@ import { LightTheme, BaseProvider, styled } from "baseui";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { BASE_URL } from "./constants";
+import { H1 } from "baseui/typography";
 
 import Home from "./Home";
 import EditProduct from "./EditProduct";
@@ -16,6 +17,7 @@ const Centered = styled("div", {
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  flexFlow: "row wrap",
   height: "100%"
 });
 
@@ -47,6 +49,7 @@ class App extends Component {
         <StyletronProvider value={engine}>
           <BaseProvider theme={LightTheme}>
             <Centered>
+              <H1>ThisFirst - Inventory</H1>
               <Route
                 path="/"
                 exact
