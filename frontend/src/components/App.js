@@ -1,22 +1,14 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import ReactDOM from "react-dom";
 import { Client as Styletron } from "styletron-engine-atomic";
 import { Provider as StyletronProvider } from "styletron-react";
 import { LightTheme, BaseProvider, styled } from "baseui";
-
-import { Spinner } from "baseui/spinner";
-import {
-  Label1,
-  Label2,
-  Caption1,
-  Caption2,
-  Paragraph1,
-  Paragraph2
-} from "baseui/typography";
-
-import Dashboard from "./Dashboard";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 import { BASE_URL } from "./constants";
+
+import Home from "./Home";
+import EditProduct from "./EditProduct";
 
 const engine = new Styletron();
 
@@ -50,16 +42,21 @@ class App extends Component {
 
   render() {
     const { inventoryList } = this.state;
-
     return (
-      <StyletronProvider value={engine}>
-        <BaseProvider theme={LightTheme}>
-          <Centered>
-            {!inventoryList && <Spinner size={50} title="Loading..." />}
-            {inventoryList && <Dashboard inventoryList={inventoryList} />}
-          </Centered>
-        </BaseProvider>
-      </StyletronProvider>
+      <Router>
+        <StyletronProvider value={engine}>
+          <BaseProvider theme={LightTheme}>
+            <Centered>
+              <Route
+                path="/"
+                exact
+                render={() => <Home inventoryList={inventoryList} />}
+              />
+              <Route path="/edit/:id" component={EditProduct} />
+            </Centered>
+          </BaseProvider>
+        </StyletronProvider>
+      </Router>
     );
   }
 }

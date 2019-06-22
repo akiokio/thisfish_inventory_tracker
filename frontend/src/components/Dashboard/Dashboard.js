@@ -1,8 +1,8 @@
 import React from "react";
 import { withStyle } from "styletron-react";
-
 import PropTypes from "prop-types";
 import { styled } from "baseui";
+import { Link } from "react-router-dom";
 
 import {
   StyledTable,
@@ -13,14 +13,7 @@ import {
   StyledCell
 } from "baseui/table";
 
-import {
-  Label1,
-  Label2,
-  Caption1,
-  Caption2,
-  Paragraph1,
-  Paragraph2
-} from "baseui/typography";
+import { Paragraph2 } from "baseui/typography";
 
 const Container = styled("div", {
   width: "100%",
@@ -28,11 +21,11 @@ const Container = styled("div", {
 });
 
 const SmallerHeadCell = withStyle(StyledHeadCell, {
-  maxWidth: "30px"
+  maxWidth: "60px"
 });
 
 const SmallerCell = withStyle(StyledCell, {
-  maxWidth: "30px"
+  maxWidth: "60px"
 });
 
 const Dashboard = ({ inventoryList }) => {
@@ -47,6 +40,7 @@ const Dashboard = ({ inventoryList }) => {
           {COLUMNS.slice(1).map((col, index) => (
             <StyledHeadCell key={index}>{col}</StyledHeadCell>
           ))}
+          <SmallerHeadCell>Actions</SmallerHeadCell>
         </StyledHead>
 
         <StyledBody>
@@ -56,6 +50,9 @@ const Dashboard = ({ inventoryList }) => {
               {row.slice(1).map((cell, cellIndex) => (
                 <StyledCell key={cellIndex}>{cell}</StyledCell>
               ))}
+              <SmallerCell>
+                <Link to={`/edit/${row[0]}`}>Edit</Link>
+              </SmallerCell>
             </StyledRow>
           ))}
         </StyledBody>
