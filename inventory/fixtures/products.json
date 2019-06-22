@@ -1,0 +1,52 @@
+[
+  {
+    "model": "inventory.product",
+    "pk": 1,
+    "fields": {
+      "name": "Product 01",
+      "sku": "p01",
+      "quantity": 33,
+      "type": "T1"
+    }
+  },
+  {
+    "model": "inventory.product",
+    "pk": 2,
+    "fields": {
+      "name": "Product 02",
+      "sku": "p02",
+      "quantity": 22,
+      "type": "T2"
+    }
+  },
+  {
+    "model": "inventory.product",
+    "pk": 3,
+    "fields": {
+      "name": "Product 03",
+      "sku": "p03",
+      "quantity": 13,
+      "type": "T3"
+    }
+  },
+  {
+    "model": "inventory.product",
+    "pk": 4,
+    "fields": {
+      "name": "Product 04",
+      "sku": "p04",
+      "quantity": 3,
+      "type": "T4"
+    }
+  },
+  {
+    "model": "inventory.product",
+    "pk": 5,
+    "fields": {
+      "name": "Product 05",
+      "sku": "p05",
+      "quantity": 11,
+      "type": "T5"
+    }
+  }
+]
