@@ -20,14 +20,21 @@
   "homepage": "https://github.com/akiokio/thisfish_inventory_tracker#readme",
   "devDependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-runtime": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "webpack": "^4.35.0",
     "webpack-cli": "^3.3.4"
+  },
+  "dependencies": {
+    "baseui": "^7.6.1",
+    "styletron-engine-atomic": "^1.4.0",
+    "styletron-react": "^5.2.0"
   }
 }
