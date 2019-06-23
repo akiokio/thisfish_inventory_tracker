@@ -13,7 +13,6 @@ import {
   StyledCell
 } from "baseui/table";
 import { Button } from "baseui/button";
-import { Paragraph2 } from "baseui/typography";
 
 const Container = styled("div", {
   width: "100%",
@@ -41,7 +40,6 @@ const Dashboard = ({ inventoryList }) => {
   return (
     <Container>
       <ActionContainer>
-        <Paragraph2>Currently: {DATA.length} in stock</Paragraph2>
         <Link to="/product/new">
           <Button>Create new product</Button>
         </Link>
