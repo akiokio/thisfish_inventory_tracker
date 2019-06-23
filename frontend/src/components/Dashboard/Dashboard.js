@@ -12,7 +12,7 @@ import {
   StyledRow,
   StyledCell
 } from "baseui/table";
-
+import { Button } from "baseui/button";
 import { Paragraph2 } from "baseui/typography";
 
 const Container = styled("div", {
@@ -28,12 +28,24 @@ const SmallerCell = withStyle(StyledCell, {
   maxWidth: "60px"
 });
 
+const ActionContainer = styled("div", {
+  width: "100%",
+  display: "flex",
+  justifyContent: "space-between",
+  margin: "8px auto"
+});
+
 const Dashboard = ({ inventoryList }) => {
   const COLUMNS = Object.keys(inventoryList[0]);
   const DATA = inventoryList.map(item => Object.values(item));
   return (
     <Container>
-      <Paragraph2>Currently: {DATA.length} in stock</Paragraph2>
+      <ActionContainer>
+        <Paragraph2>Currently: {DATA.length} in stock</Paragraph2>
+        <Link to="/product/new">
+          <Button>Create new product</Button>
+        </Link>
+      </ActionContainer>
       <StyledTable>
         <StyledHead>
           <SmallerHeadCell>ID</SmallerHeadCell>
@@ -51,7 +63,7 @@ const Dashboard = ({ inventoryList }) => {
                 <StyledCell key={cellIndex}>{cell}</StyledCell>
               ))}
               <SmallerCell>
-                <Link to={`/edit/${row[0]}`}>Edit</Link>
+                <Link to={`/product/edit/${row[0]}`}>Edit</Link>
               </SmallerCell>
             </StyledRow>
           ))}

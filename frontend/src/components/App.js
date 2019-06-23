@@ -10,6 +10,7 @@ import { H1 } from "baseui/typography";
 
 import Home from "./Home";
 import EditProduct from "./EditProduct";
+import NewProduct from "./NewProduct";
 
 const engine = new Styletron();
 
@@ -49,13 +50,14 @@ class App extends Component {
         <StyletronProvider value={engine}>
           <BaseProvider theme={LightTheme}>
             <Centered>
-              <H1>ThisFirst - Inventory</H1>
+              <H1>ThisFish - Inventory</H1>
               <Route
                 path="/"
                 exact
                 render={() => <Home inventoryList={inventoryList} />}
               />
-              <Route path="/edit/:id" component={EditProduct} />
+              <Route path="/product/new" component={NewProduct} />
+              <Route path="/product/edit/:id" component={EditProduct} />
             </Centered>
           </BaseProvider>
         </StyletronProvider>
