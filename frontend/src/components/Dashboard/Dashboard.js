@@ -58,7 +58,9 @@ const Dashboard = ({ inventoryList }) => {
             <StyledRow key={index}>
               <SmallerCell>{row[0]}</SmallerCell>
               {row.slice(1).map((cell, cellIndex) => (
-                <StyledCell key={cellIndex}>{cell}</StyledCell>
+                <StyledCell key={cellIndex}>
+                  <Link to={`/product/edit/${row[0]}`}>{cell}</Link>
+                </StyledCell>
               ))}
               <SmallerCell>
                 <Link to={`/product/edit/${row[0]}`}>Edit</Link>
