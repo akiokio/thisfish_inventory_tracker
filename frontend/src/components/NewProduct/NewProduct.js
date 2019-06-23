@@ -11,7 +11,10 @@ import { getCookie } from "../../helpers/cookie";
 
 const Container = styled("div", {
   width: "100%",
-  height: "100%"
+  height: "100%",
+  display: "flex",
+  justifyContent: "center",
+  flexFlow: "row wrap"
 });
 
 class NewProduct extends Component {

@@ -8,7 +8,7 @@ import { Paragraph2 } from "baseui/typography";
 import { BASE_URL } from "../constants";
 import ProductForm from "../ProductForm";
 
-const Wrapper = styled("div", {
+const Container = styled("div", {
   width: "100%",
   display: "flex",
   justifyContent: "center",
@@ -38,13 +38,13 @@ class EditProduct extends Component {
   render() {
     const { product } = this.state;
     return (
-      <Wrapper>
+      <Container>
         <Paragraph2>
           <Link to="/">Back</Link>
         </Paragraph2>
         {!product && <Spinner size={50} title="Loading..." />}
         {product && <ProductForm product={product} />}
-      </Wrapper>
+      </Container>
     );
   }
 }

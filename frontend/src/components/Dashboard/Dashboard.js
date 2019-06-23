@@ -43,6 +43,12 @@ const Dashboard = ({ inventoryList }) => {
         <Link to="/product/new">
           <Button>Create new product</Button>
         </Link>
+        <Link to="/product/receive">
+          <Button>Receive product</Button>
+        </Link>
+        <Link to="/product/ship">
+          <Button>Ship product</Button>
+        </Link>
       </ActionContainer>
       <StyledTable>
         <StyledHead>
