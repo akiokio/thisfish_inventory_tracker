@@ -18,18 +18,19 @@ const Container = styled("div", {
 });
 
 class NewProduct extends Component {
-  // state = {
-  //   name: "",
-  //   sku: "",
-  //   quantity: "",
-  //   type: ""
-  // };
   state = {
-    name: faker.commerce.productName(),
-    sku: faker.random.alphaNumeric(6),
-    quantity: faker.random.number({ min: 0, max: 100 }),
-    type: ["T1", "T2", "T3", "T4"][Math.floor(Math.random() * 4)]
+    name: "",
+    sku: "",
+    quantity: "",
+    type: ""
   };
+  // To facilitate testing
+  // state = {
+  //   name: faker.commerce.productName(),
+  //   sku: faker.random.alphaNumeric(6),
+  //   quantity: faker.random.number({ min: 0, max: 100 }),
+  //   type: ["T1", "T2", "T3", "T4"][Math.floor(Math.random() * 4)]
+  // };
 
   onChange = event => {
     const {
