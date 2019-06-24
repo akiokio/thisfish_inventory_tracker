@@ -11,6 +11,7 @@ import Home from "./Home";
 import EditProduct from "./EditProduct";
 import NewProduct from "./NewProduct";
 import ReceiveProduct from "./ReceiveProduct";
+import ShipProduct from "./ShipProduct";
 
 const engine = new Styletron();
 
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/product/new" component={NewProduct} />
             <Route path="/product/edit/:id" component={EditProduct} />
             <Route path="/product/receive" component={ReceiveProduct} />
+            <Route path="/product/ship" component={ShipProduct} />
             <Route component={NoMatch} />
           </Switch>
         </Centered>

@@ -24,18 +24,24 @@ const InputContainer = styled("div", {
   width: "100%"
 });
 
-class ReceiveProduct extends Component {
+class ShipProduct extends Component {
   state = {
     productList: null,
     selectedProduct: null,
-    quantity: 0
+    quantity: 0,
+    currentQuantity: 0
   };
 
   handleSave = async () => {
-    const { quantity, selectedProduct } = this.state;
+    const { quantity, selectedProduct, currentQuantity } = this.state;
+
+    if (currentQuantity < quantity) {
+      alert("You can't remove more than the quantity in stock");
+      return;
+    }
     try {
       const result = await fetch(
-        `${BASE_URL}/api/products/${selectedProduct}/add_to_inventory/`,
+        `${BASE_URL}/api/products/${selectedProduct}/remove_from_inventory/`,
         {
           method: "post",
           body: JSON.stringify({
@@ -65,7 +71,8 @@ class ReceiveProduct extends Component {
       this.setState({
         productList: resultJson.results.map(i => ({
           id: i.id,
-          value: `${i.name} - ${i.sku} - ${i.quantity}`
+          value: `${i.name} - ${i.sku} - ${i.quantity}`,
+          currentQuantity: i.quantity
         }))
       });
     } catch (error) {
@@ -74,7 +81,10 @@ class ReceiveProduct extends Component {
   };
 
   handleSelectChange = e => {
-    this.setState({ selectedProduct: e.option.id });
+    this.setState({
+      selectedProduct: e.option.id,
+      currentQuantity: e.option.currentQuantity
+    });
   };
 
   handleInputchange = e => {
@@ -109,7 +119,7 @@ class ReceiveProduct extends Component {
                   onChange={this.handleSelectChange}
                 />
               </FormControl>
-              <FormControl label="Quantity received">
+              <FormControl label="Quantity to ship">
                 <Input
                   name="quantity"
                   type="number"
@@ -130,4 +140,4 @@ class ReceiveProduct extends Component {
   }
 }
 
-export default withRouter(ReceiveProduct);
+export default withRouter(ShipProduct);

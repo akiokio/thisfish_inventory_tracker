@@ -16,13 +16,14 @@ class ProductViewSet(viewsets.ModelViewSet):
 
     @decorators.action(detail=True, methods=["post"])
     def add_to_inventory(self, request, pk=None):
-        print(request.data)
         product = self.get_object()
         product.quantity += int(request.data['quantity'])
         product.save()
         return response.Response({'status': 'ok'})
-        # if serializer.is_valid():
-        #
-        # else:
-        #     return response.Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    @decorators.action(detail=True, methods=["post"])
+    def remove_from_inventory(self, request, pk=None):
+        product = self.get_object()
+        product.quantity -= int(request.data['quantity'])
+        product.save()
+        return response.Response({'status': 'ok'})
