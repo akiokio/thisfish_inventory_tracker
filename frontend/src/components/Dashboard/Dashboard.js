@@ -40,13 +40,13 @@ const Dashboard = ({ inventoryList }) => {
   return (
     <Container>
       <ActionContainer>
-        <Link to="/product/new">
+        <Link to="/product/new" className="new-product__link">
           <Button>Create new product</Button>
         </Link>
-        <Link to="/product/receive">
+        <Link to="/product/receive" className="receive-product__link">
           <Button>Receive product</Button>
         </Link>
-        <Link to="/product/ship">
+        <Link to="/product/ship" className="ship-product__link">
           <Button>Ship product</Button>
         </Link>
       </ActionContainer>
